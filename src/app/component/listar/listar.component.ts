@@ -5,6 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -25,12 +26,15 @@ export class ListarComponent implements OnInit {
   mode = 'indeterminate';
   value = 50;
 
-  constructor(private service: UsuarioService) {
+  constructor(private service: UsuarioService, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
     let usuarios = [];
+    this.route.data.subscribe(routeData=>{
+      usuarios = routeData['usuarios'];
+    });
     this.service.listAllUsuarios().subscribe(res => {
       usuarios = res;
       this.dataSource = new MatTableDataSource(usuarios);

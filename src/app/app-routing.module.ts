@@ -7,6 +7,7 @@ import { CadastrarPalavraComponent } from './component/cadastrar-palavra/cadastr
 import { AuthGuard} from './auth/auth.guard';
 import { ListarPalavraComponent } from './component/listar-palavra/listar-palavra.component';
 import { HomeComponent } from './component/home/home.component';
+import { UsuarioResolver } from './resolver/usuario.resolver';
 
 const routes: Routes = [
   {

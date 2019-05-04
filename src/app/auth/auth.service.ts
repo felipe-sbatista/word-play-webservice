@@ -16,43 +16,39 @@ export class AuthService {
   authState = null;
 
   constructor(public afAuth: AngularFireAuth, public router: Router) {
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.user = user;
-        localStorage.setItem('user', JSON.stringify(this.user));
-        JSON.parse(localStorage.getItem('user'))
-      } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-      }
-    });
+    // this.afAuth.authState.subscribe(user => {
+    //   if (user) {
+    //     this.user = user;
+    //     localStorage.setItem('user', JSON.stringify(this.user));
+    //     JSON.parse(localStorage.getItem('user'))
+    //   } else {
+    //     localStorage.setItem('user', null);
+    //     JSON.parse(localStorage.getItem('user'));
+    //   }
+    // });
   }
 
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null) ? true : false;
-  }
+  // get isLoggedIn(): boolean {
+  //   const user = JSON.parse(localStorage.getItem('user'));
+  //   return (user !== null) ? true : false;
+  // }
 
   async login(email: string, password: string) {
-    try {
-      await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    await this.afAuth.auth.signInWithEmailAndPassword(email, password).then(response => {
+      console.log('Usuario logado');
       this.change.emit(true);
-      this.router.navigate(['listar']);
-    } catch (e) {
+      this.router.navigate(['listar/usuarios']);
+    }).catch(error => {
       this.change.emit(false);
-      alert("Error!" + e.message);
-     
-    }
+      alert("Usuário não encontrado!");
+    });
   }
 
   async logout() {
     await this.afAuth.auth.signOut();
-    localStorage.removeItem('user');
+    // localStorage.removeItem('user');
     this.change.emit(false);
-    this.router.navigate(['login']);
+
   }
 
-  // get currentUserObservable(): any {
-  //   return this.afAuth.auth
-  // }
 }

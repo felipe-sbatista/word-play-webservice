@@ -29,6 +29,7 @@ import { LoginComponent } from './component/login/login.component';
 import { CadastrarPalavraComponent } from './component/cadastrar-palavra/cadastrar-palavra.component';
 import { TopbarComponent } from './component/topbar/topbar.component';
 import { ListarPalavraComponent } from './component/listar-palavra/listar-palavra.component';
+import { UsuarioResolver } from './resolver/usuario.resolver';
 
 
 export const firebaseConfig = {
@@ -79,7 +80,7 @@ export const firebaseConfig = {
     MatCardModule
 
   ],
-  providers: [],
+  providers: [UsuarioResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
