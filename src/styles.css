@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #9C1717;
+  }
+  p {
+    text-align: justify;
+  }
+  
+  

@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #9C1717">
+  <a class="navbar-brand" href="#"><img width="100" height="100" src="../assets/icons/logo.ico"></a>
+  <span class="spacer"></span>
+
+  <button title="Sair" (click)="logout()" *ngIf="logged" mat-mini-fab style="color: #9C1717; background-color: #cd853f">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+  <button title="Login" (click)="redirect()" *ngIf="!logged" mat-mini-fab
+    style="color: #9C1717; background-color: #cd853f">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <button title="Opções" mat-mini-fab [matMenuTriggerFor]="menu" style="color: #9C1717; background-color: #cd853f">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+
+  <mat-menu #menu="matMenu">
+
+    <a href="listar/usuarios">
+      <button mat-menu-item>
+        <mat-icon>list</mat-icon>
+        <span>Listar usuários</span>
+      </button>
+    </a>
+
+
+    <a href="listar/palavras">
+      <button mat-menu-item>
+        <mat-icon>list</mat-icon>
+        <span>Listar palavras</span>
+      </button>
+    </a>
+
+    <a href="cadastrar">
+      <button mat-menu-item>
+        <mat-icon>add</mat-icon>
+        <span>Cadastrar palavra</span>
+      </button>
+    </a>
+
+
+  </mat-menu>
+</nav>

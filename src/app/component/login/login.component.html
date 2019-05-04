@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center div-card">
+  <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+
+    <div class="card-body">
+
+      <div class="card-text">
+        <form class="card-block" (ngSubmit)="login(); formulario.reset()" #formulario="ngForm">
+          <mat-form-field>
+            <input [(ngModel)]="email" name="email" matInput placeholder="E-mail">
+          </mat-form-field>
+          <mat-form-field>
+            <input type="password" name="password" [(ngModel)]="password" matInput placeholder="Senha">
+          </mat-form-field>
+
+
+          <button type="submit" (click)="login(); formulario.reset()" mat-raised-button color="primary"
+                    style="color: #cd853f; background-color: #9C1717">
+            LOGIN
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

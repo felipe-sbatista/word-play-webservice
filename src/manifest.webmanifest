@@ -1,0 +1,16 @@
+{
+  "name": "unicap",
+  "short_name": "unicap",
+  "theme_color": "#9C1717",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "assets/icons/logo.ico",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}

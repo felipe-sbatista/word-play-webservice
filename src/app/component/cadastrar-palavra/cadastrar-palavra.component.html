@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center div-card">
+  <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 50%;">
+
+    <div class="card-body">
+
+
+      <mat-form-field>
+        <input matInput placeholder="Digite a palavra">
+      </mat-form-field>
+
+      <button style="color: #cd853f; background-color: #9C1717" type="button" mat-raised-button (click)="fileInput.click()">Selecionar Arquivo</button>
+      <input hidden accept="image/*" (change)="uploadFile($event.target.files)" #fileInput type="file" id="file">
+      <!-- <input matInput type="file" id="file" accept="image/*" (change)="uploadFile($event.target.files)" /> -->
+
+    </div>
+
+  </div>
+</div>
